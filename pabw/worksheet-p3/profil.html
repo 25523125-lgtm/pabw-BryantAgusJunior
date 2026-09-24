@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Universal Pictures</title>
+  </head>
+  <body>
+    <header id="beranda">
+      <h1>Universal Pictures</h1>
+      <p>
+        Universal Pictures merupakan salah satu studio film tertua dan terbesar
+        di Amerika Serikat dan memiliki berbagai film yang populer.
+      </p>
+      <nav aria-label="Navigasi utama">
+        <ul>
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#daftar-film">Daftar Film</a></li>
+          <li><a href="#beri-ulasan">Beri Ulasan</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="daftar-film" aria-labelledby="judul-daftar-film">
+        <h2 id="judul-daftar-film">Daftar Film</h2>
+        <p>Dua film animasi favorit saya yang pernah saya tonton.</p>
+
+        <h3>Despicable Me</h3>
+        <figure>
+          <img
+            src="../Despicable_Me.jpg"
+            alt="Gru, seorang penjahat super ambisius yang berencana mencuri Bulan, namun hidupnya berubah drastis setelah mengadopsi tiga anak yatim piatu"
+            width="400"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            Gru bersama tiga anak angkatnya dan para Minion.
+          </figcaption>
+        </figure>
+
+        <h3>Kung Fu Panda</h3>
+        <figure>
+          <img
+            src="../Kungfu_Panda.jpeg"
+            alt="perjalanan Po Ping, seekor panda gemuk dan kikuk yang bekerja di kedai mie ayahnya, namun bermimpi besar menjadi seorang ahli kung fu"
+            width="400"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>Po, sang Pendekar Naga, dalam pose kung fu.</figcaption>
+        </figure>
+
+        <h3>Tabel Film</h3>
+        <table>
+          <caption>
+            Film yang pernah saya tonton beserta penilaian saya
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Judul</th>
+              <th scope="col">Tahun rilis</th>
+              <th scope="col">Genre</th>
+              <th scope="col">Rating</th>
+              <th scope="col">Sinopsis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Despicable Me</th>
+              <td>2010</td>
+              <td>Animasi, komedi, keluarga</td>
+              <td>8/10</td>
+              <td>
+                Gru, seorang penjahat super ambisius yang berencana mencuri
+                Bulan, namun hidupnya berubah drastis setelah mengadopsi tiga
+                anak yatim piatu
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Despicable Me 2</th>
+              <td>2013</td>
+              <td>Animasi, komedi, petualangan</td>
+              <td>8/10</td>
+              <td>
+                Gru yang direkrut oleh Liga Anti-Penjahat (AVL) untuk melacak
+                penjahat super baru setelah ia pensiun dari dunia kejahatan dan
+                fokus merawat ketiga putri angkatnya.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Kung Fu Panda</th>
+              <td>2008</td>
+              <td>Animasi, aksi, komedi</td>
+              <td>9/10</td>
+              <td>
+                perjalanan Po Ping, seekor panda gemuk dan kikuk yang bekerja di
+                kedai mie ayahnya, namun bermimpi besar menjadi seorang ahli
+                kung fu.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Kung Fu Panda 4</th>
+              <td>2024</td>
+              <td>Animasi, aksi, petualangan</td>
+              <td>7/10</td>
+              <td>
+                Po yang harus pensiun sebagai Pendekar Naga (Dragon Warrior) dan
+                bersiap menjadi pemimpin spiritual (Spiritual Leader) di Lembah
+                Perdamaian.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="beri-ulasan" aria-labelledby="judul-beri-ulasan">
+        <h2 id="judul-beri-ulasan">Beri Ulasan</h2>
+
+        <form action="/simpan" method="post">
+          <p>
+            <label for="nama">Nama</label>
+            <input
+              type="text"
+              id="nama"
+              name="nama"
+              required
+              minlength="2"
+              autocomplete="name"
+            />
+          </p>
+          <p>
+            <label for="rating">Rating (1 sampai 10)</label>
+            <input
+              type="number"
+              id="rating"
+              name="rating"
+              min="1"
+              max="10"
+              step="1"
+              required
+            />
+          </p>
+          <p>
+            <label for="komentar">Komentar</label>
+            <textarea
+              id="komentar"
+              name="komentar"
+              rows="4"
+              cols="40"
+              required
+              maxlength="500"
+            ></textarea>
+          </p>
+          <button type="submit">Simpan</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>Bryant Agus Junior Saputra · 25523125 · 2026</p>
+    </footer>
+  </body>
+</html>
