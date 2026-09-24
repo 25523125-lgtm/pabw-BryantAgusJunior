@@ -1,0 +1,79 @@
+header {
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-baris {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap; /* turun baris di layar sempit, jangan meluber */
+}
+
+.header-kanan {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+nav ul {
+  display: flex;
+  gap: var(--space-4);
+  list-style: none; /* daftar nav tanpa butir */
+  padding: 0;
+}
+
+nav a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap); /* jarak antar bagian, tanpa margin */
+  padding-block: var(--space-6);
+}
+
+.katalog {
+  display: flex;
+  flex-wrap: wrap; /* kunci responsif: kartu turun sendiri */
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.kartu {
+  flex: 1 1 16rem; /* tumbuh, menyusut, lebar dasar 16rem */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-1);
+  padding: var(--card-pad);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.bagian-tabel {
+  margin-top: var(--space-4);
+}
+
+.tabel-wadah {
+  overflow-x: auto;
+  margin-top: var(--space-2);
+}
+
+footer {
+  margin-top: var(--space-6);
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-fg); /* hindari abu pucat yang gagal kontras */
+  font-size: var(--text-sm);
+}

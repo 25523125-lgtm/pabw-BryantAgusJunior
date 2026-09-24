@@ -1,0 +1,111 @@
+/* Styling Form */
+.form-ulasan {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 30rem;
+  margin-top: var(--space-4);
+}
+
+.form-kolom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2); /* jarak label ke isian, seragam */
+}
+
+label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  font: inherit; /* kolom isian ikut ukuran huruf halaman */
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-fg);
+}
+
+button {
+  font: inherit;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Keadaan Fokus */
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Keadaan Validasi dan Pesan Galat */
+input:user-invalid,
+textarea:user-invalid {
+  border-color: var(--color-danger);
+  border-width: 2px;
+}
+
+.pesan-galat {
+  display: none;
+  color: var(--color-danger);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.form-kolom:has(input:user-invalid) .pesan-galat,
+.form-kolom:has(textarea:user-invalid) .pesan-galat {
+  display: block;
+}
+
+/* Styling Tabel */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+caption {
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
+  text-align: left;
+  font-style: italic;
+}
+
+th,
+td {
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  text-align: left;
+}
+
+thead {
+  background-color: var(--color-bg);
+}
+
+/* Tombol Tema */
+.tombol-tema {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-fg);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  user-select: none;
+}
