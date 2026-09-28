@@ -1,4 +1,4 @@
-/* LAPIS 1 — primitif: nilai mentah, tidak menyebut peran apa pun */
+/* LAPIS 1 — Primitif */
 :root {
   --slate-50: #f8fafc;
   --slate-200: #e2e8f0;
@@ -10,13 +10,13 @@
   --white: #ffffff;
 
   --emerald-700: #047857;
-  --emerald-400: #34d399; /* Untuk primary tema gelap */
+  --emerald-400: #34d399;
 
   --red-600: #dc2626;
-  --red-400: #f87171; /* Untuk peringatan tema gelap */
+  --red-400: #f87171;
 
   --blue-600: #2563eb;
-  --amber-400: #fbbf24; /* Untuk fokus tema gelap */
+  --amber-400: #fbbf24;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -34,7 +34,7 @@
   --text-3xl: 2.25rem;
 }
 
-/* LAPIS 2 — semantik: peran. Isinya mengacu ke lapis 1. */
+/* LAPIS 2 — Semantik */
 :root {
   --color-bg: var(--slate-50);
   --color-fg: var(--slate-900);
