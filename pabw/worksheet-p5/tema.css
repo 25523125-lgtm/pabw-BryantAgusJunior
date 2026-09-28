@@ -1,0 +1,35 @@
+/* Pengalih tema tanpa JavaScript */
+.pengalih-tema {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Ikut pengaturan sistem: lapis semantik saja yang diganti */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: var(--slate-900);
+    --color-fg: var(--slate-200);
+    --color-surface: var(--slate-800);
+    --color-border: var(--slate-700);
+    --color-primary: var(
+      --emerald-400
+    ); /* Hijau lebih terang untuk lolos kontras */
+    --color-danger: var(--red-400); /* Merah lebih terang */
+    --color-focus: var(--amber-400); /* Kuning amber agar jelas di mode gelap */
+    --shadow-1: 0 4px 6px -1px rgba(0, 0, 0, 0.5); /* Bayangan lebih pekat */
+  }
+}
+
+/* Pilihan manual HARUS berada setelah blok media query,
+   supaya menang saat keduanya menyala bersamaan. */
+:root:has(#tema:checked) {
+  --color-bg: var(--slate-900);
+  --color-fg: var(--slate-200);
+  --color-surface: var(--slate-800);
+  --color-border: var(--slate-700);
+  --color-primary: var(--emerald-400);
+  --color-danger: var(--red-400);
+  --color-focus: var(--amber-400);
+  --shadow-1: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+}
