@@ -154,20 +154,6 @@ nav a:hover {
   background: var(--color-surface);
 }
 
-@media (max-width: 640px) {
-  .isi {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "sisi"
-      "utama"
-      "bawah";
-  }
-
-  .sisi {
-    position: static;
-  }
-}
-
 footer {
   margin-top: var(--space-6);
   padding-block: var(--space-4);

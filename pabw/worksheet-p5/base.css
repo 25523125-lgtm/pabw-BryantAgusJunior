@@ -1,11 +1,11 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box; /* Width sudah mencakup padding + border */
+  box-sizing: border-box;
 }
 
 * {
-  margin: 0; /* Hapus jarak bawaan; atur sendiri memakai gap */
+  margin: 0;
 }
 
 img {
@@ -15,7 +15,7 @@ img {
 }
 
 html {
-  font-size: 100%; /* Ikuti pengaturan pengguna */
+  font-size: 100%;
 }
 
 body {

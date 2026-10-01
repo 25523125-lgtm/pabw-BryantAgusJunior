@@ -1,0 +1,70 @@
+.content,
+.isi {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "sisi"
+    "utama"
+    "bawah";
+  gap: var(--space-4);
+}
+
+.sisi {
+  position: static;
+  width: 100%;
+}
+
+.grid,
+.galeri,
+.katalog {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.tabel-wadah,
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 48rem) {
+  .grid,
+  .galeri,
+  .katalog {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 60rem) {
+  .isi {
+    grid-template-columns: 16rem 1fr;
+    grid-template-areas:
+      "sisi utama"
+      "sisi bawah";
+    gap: var(--space-6);
+  }
+
+  .sisi {
+    position: sticky;
+    top: var(--space-4);
+  }
+
+  .grid,
+  .galeri,
+  .katalog {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

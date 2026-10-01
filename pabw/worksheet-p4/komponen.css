@@ -1,4 +1,3 @@
-/* Styling Form */
 .form-ulasan {
   display: flex;
   flex-direction: column;
@@ -10,7 +9,7 @@
 .form-kolom {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2); /* jarak label ke isian, seragam */
+  gap: var(--space-2);
 }
 
 label {
@@ -21,7 +20,7 @@ label {
 input,
 select,
 textarea {
-  font: inherit; /* kolom isian ikut ukuran huruf halaman */
+  font: inherit;
   padding: var(--space-2) var(--space-3);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -45,13 +44,11 @@ button:hover {
   opacity: 0.9;
 }
 
-/* Keadaan Fokus */
 :focus-visible {
   outline: 2px solid var(--color-focus);
   outline-offset: 2px;
 }
 
-/* Keadaan Validasi dan Pesan Galat */
 input:user-invalid,
 textarea:user-invalid {
   border-color: var(--color-danger);
@@ -70,7 +67,6 @@ textarea:user-invalid {
   display: block;
 }
 
-/* Styling Tabel */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -97,7 +93,6 @@ thead {
   background-color: var(--color-bg);
 }
 
-/* Tombol Tema */
 .tombol-tema {
   display: inline-block;
   padding: var(--space-1) var(--space-3);
