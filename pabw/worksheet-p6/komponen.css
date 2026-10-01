@@ -114,7 +114,7 @@ textarea:user-invalid {
 
 table {
   width: 100%;
-  min-width: 38rem; /* inilah yang membuat tabel bergulir di 360 px */
+  min-width: 38rem;
   border-collapse: collapse;
   font-size: var(--text-sm);
 }
