@@ -114,7 +114,7 @@ textarea:user-invalid {
 
 table {
   width: 100%;
-  min-width: 38rem;
+  min-width: 38rem; /* inilah yang membuat tabel bergulir di 360 px */
   border-collapse: collapse;
   font-size: var(--text-sm);
 }
@@ -136,9 +136,9 @@ thead {
 
 th,
 td {
-  padding: var(--space-3) var(--space-4); /* Longgar & nyaman dibaca */
+  padding: var(--space-3) var(--space-4);
   text-align: left;
-  vertical-align: top; /* Rapi saat baris tinggi */
+  vertical-align: top;
   border-bottom: 1px solid var(--color-border);
   line-height: 1.5;
 }

@@ -1,3 +1,4 @@
+/* ===== DASAR (sama seperti di atas) ===== */
 .content,
 .isi {
   display: grid;
@@ -40,6 +41,7 @@ p {
   line-height: 1.6;
 }
 
+/* ===== TABLET: mulai 48rem (768 px) ===== */
 @media (min-width: 48rem) {
   .grid,
   .galeri,
@@ -48,6 +50,7 @@ p {
   }
 }
 
+/* ===== DESKTOP: mulai 60rem (960 px) ===== */
 @media (min-width: 60rem) {
   .isi {
     grid-template-columns: 16rem 1fr;

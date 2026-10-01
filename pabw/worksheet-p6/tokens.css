@@ -1,3 +1,4 @@
+/* LAPIS 1 — Primitif */
 :root {
   --slate-50: #f8fafc;
   --slate-200: #e2e8f0;
@@ -33,6 +34,7 @@
   --text-3xl: 2.25rem;
 }
 
+/* LAPIS 2 — Semantik */
 :root {
   --color-bg: var(--slate-50);
   --color-fg: var(--slate-900);
