@@ -44,7 +44,7 @@ const daftarFilm = [
     sinopsis:
       "Gru, seorang penjahat super ambisius yang berencana mencuri Bulan, namun hidupnya berubah drastis setelah mengadopsi tiga anak yatim piatu.",
     unggulan: true,
-    gambar: "../worksheet-p8/Photo/Despicable_Me.jpeg",
+    gambar: "../worksheet-p8/Photo/Despicable_Me.jpg",
     alt: "Gru, seorang penjahat super ambisius yang berencana mencuri Bulan, namun hidupnya berubah drastis setelah mengadopsi tiga anak yatim piatu",
     keterangan: "Gru bersama tiga anak angkatnya dan para Minion.",
   },
