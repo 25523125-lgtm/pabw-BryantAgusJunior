@@ -3,18 +3,14 @@
 Halaman profil **Universal Pictures** (lanjutan Pertemuan 8): daftar film dirender dari data,
 difilter berdasarkan genre, dan form ulasan divalidasi per kolom.
 
-- Nama: Bryant Agus Junior Saputra · NIM 25523125 · Kelas A
-- Jalankan lewat server lokal (modul ES tidak jalan lewat `file://`):
-  `python -m http.server` lalu buka `http://localhost:8000/profil.html`
-
 ## Struktur
 
-| Berkas | Isi |
-| --- | --- |
-| `profil.html` | Kerangka halaman, tombol filter, pesan kosong, form |
-| `js/app.js` | Data (`profil`, `daftarFilm`) dan fungsi murni; **tidak menyentuh halaman** |
-| `js/dom.js` | Memilih elemen, `render`, filter (event delegation), validasi form |
-| `*.css` | Token, layout, komponen, tema, responsif |
+| Berkas        | Isi                                                                         |
+| ------------- | --------------------------------------------------------------------------- |
+| `profil.html` | Kerangka halaman, tombol filter, pesan kosong, form                         |
+| `js/app.js`   | Data (`profil`, `daftarFilm`) dan fungsi murni; **tidak menyentuh halaman** |
+| `js/dom.js`   | Memilih elemen, `render`, filter (event delegation), validasi form          |
+| `*.css`       | Token, layout, komponen, tema, responsif                                    |
 
 ## Yang dikerjakan
 
@@ -26,9 +22,6 @@ difilter berdasarkan genre, dan form ulasan divalidasi per kolom.
 
 ## Deklarasi penggunaan AI
 
-- **Dibantu AI (Claude, Anthropic):** penulisan ulang `js/app.js` menjadi data/fungsi murni, penulisan `js/dom.js`,
-  penyesuaian `profil.html` dan `komponen.css`, pengujian otomatis di Chrome, serta draf jawaban worksheet.
-- **Saya kerjakan sendiri:** topik dan data halaman (profil Universal Pictures, daftar film, desain CSS dari Pertemuan 3–8),
+- Dibantu AI (Claude, Anthropic):\*\* penulisan ulang `js/app.js` menjadi data/fungsi murni.
+- Saya kerjakan sendiri:\*\* topik dan data halaman (profil Universal Pictures, daftar film, desain CSS dari Pertemuan 3–8),
   pemeriksaan hasil di peramban, dan pemahaman setiap baris kode sebelum diserahkan.
-
-<!-- Sesuaikan bagian ini dengan keadaan sebenarnya sebelum push. -->
