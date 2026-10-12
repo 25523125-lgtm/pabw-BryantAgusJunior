@@ -1,4 +1,3 @@
-// dom.js — menyentuh halaman. Data dan fungsi murni datang dari app.js.
 import {
   profil,
   daftarFilm,
@@ -6,8 +5,6 @@ import {
   formatKeahlian,
   hitungRataRata,
 } from "./app.js";
-
-/* ---------- Lembar A: pilih elemen, gagal dengan pesan yang jelas ---------- */
 
 function ambil(pemilih) {
   const elemen = document.querySelector(pemilih);
@@ -29,8 +26,6 @@ const formUlasan = ambil("#form-ulasan");
 const pesanUlasan = ambil("#pesan-ulasan");
 const tombolKirim = ambil("#form-ulasan button[type='submit']");
 
-/* ---------- Kepala halaman (dari data profil) ---------- */
-
 document.title = `${profil.nama} - Profil & Daftar Film`;
 elNama.textContent = profil.nama;
 elDeskripsi.textContent = buatPerkenalan(profil);
@@ -38,8 +33,6 @@ elDeskripsi.textContent = buatPerkenalan(profil);
 const elKeahlian = document.createElement("p");
 elKeahlian.textContent = `Genre: ${formatKeahlian(profil.keahlian)}`;
 elDeskripsi.after(elKeahlian);
-
-/* ---------- Lembar B + D.1: render daftar film dari data ---------- */
 
 function buatKartu(film, indeks) {
   const kartu = document.createElement("article");
@@ -98,16 +91,15 @@ function buatKartu(film, indeks) {
 }
 
 function render(daftar) {
-  wadahDaftar.textContent = ""; // 1. kosongkan lebih dulu
+  wadahDaftar.textContent = "";
 
   if (daftar.length === 0) {
-    // 2. keadaan kosong
     pesanKosong.hidden = false;
     return;
   }
   pesanKosong.hidden = true;
 
-  const fragmen = document.createDocumentFragment(); // 3. isi ulang, digambar sekali
+  const fragmen = document.createDocumentFragment();
   daftar.forEach((film, indeks) => fragmen.append(buatKartu(film, indeks)));
   wadahDaftar.append(fragmen);
 }
@@ -141,8 +133,6 @@ function renderTabel(daftar) {
   badanTabel.append(fragmen);
 }
 
-/* ---------- Lembar C: satu pendengar di induk untuk semua tombol filter ---------- */
-
 function tandaiTombolAktif(tombolAktif) {
   barisFilter.querySelectorAll("button").forEach((tombol) => {
     const aktif = tombol === tombolAktif;
@@ -153,7 +143,7 @@ function tandaiTombolAktif(tombolAktif) {
 
 barisFilter.addEventListener("click", (event) => {
   const tombol = event.target.closest("button");
-  if (!tombol) return; // klik di luar tombol, abaikan
+  if (!tombol) return;
 
   const kategori = tombol.dataset.kategori;
   const terpilih = daftarFilm.filter(
@@ -164,8 +154,6 @@ barisFilter.addEventListener("click", (event) => {
   render(terpilih);
 });
 
-// Tombol "Detail" pada kartu juga memakai satu pendengar di induk (#daftar),
-// jadi kartu yang dibuat ulang oleh render() tetap terlayani.
 wadahDaftar.addEventListener("click", (event) => {
   const tombol = event.target.closest("button.kartu__detail");
   if (!tombol) return;
@@ -176,16 +164,16 @@ wadahDaftar.addEventListener("click", (event) => {
   tombol.setAttribute("aria-expanded", String(!sinopsis.hidden));
 });
 
-/* ---------- Lembar D.2: validasi form per kolom ---------- */
-
 const kolom = [
   {
     input: ambil("#nama"),
     galat: ambil("#galat-nama"),
     periksa() {
       const nilai = this.input.value.trim();
-      if (nilai === "") return "Nama wajib diisi. Ketik nama Anda, minimal 2 karakter.";
-      if (nilai.length < 2) return "Nama terlalu pendek. Tambahkan sampai minimal 2 karakter.";
+      if (nilai === "")
+        return "Nama wajib diisi. Ketik nama Anda, minimal 2 karakter.";
+      if (nilai.length < 2)
+        return "Nama terlalu pendek. Tambahkan sampai minimal 2 karakter.";
       return "";
     },
   },
@@ -194,7 +182,8 @@ const kolom = [
     galat: ambil("#galat-rating"),
     periksa() {
       const mentah = this.input.value.trim();
-      if (mentah === "") return "Rating wajib diisi. Masukkan angka bulat dari 1 sampai 10.";
+      if (mentah === "")
+        return "Rating wajib diisi. Masukkan angka bulat dari 1 sampai 10.";
       const angka = Number(mentah);
       if (!Number.isInteger(angka) || angka < 1 || angka > 10) {
         return "Rating harus bilangan bulat dari 1 sampai 10. Ubah angkanya, misalnya 8.";
@@ -207,14 +196,16 @@ const kolom = [
     galat: ambil("#galat-komentar"),
     periksa() {
       const nilai = this.input.value.trim();
-      if (nilai === "") return "Komentar wajib diisi. Tulis satu atau dua kalimat tentang film itu.";
-      if (nilai.length > 500) return "Komentar terlalu panjang. Persingkat sampai maksimal 500 karakter.";
+      if (nilai === "")
+        return "Komentar wajib diisi. Tulis satu atau dua kalimat tentang film itu.";
+      if (nilai.length > 500)
+        return "Komentar terlalu panjang. Persingkat sampai maksimal 500 karakter.";
       return "";
     },
   },
 ];
 
-let sudahMencoba = false; // tombol baru ditahan setelah ada percobaan kirim
+let sudahMencoba = false;
 let jumlahUlasan = 0;
 
 function tampilkanGalat(k, pesan) {
@@ -232,7 +223,6 @@ function periksaKolom(k) {
 
 const formSah = () => kolom.every((k) => k.periksa() === "");
 
-// satu pendengar "input" di form melayani ketiga kolom
 formUlasan.addEventListener("input", (event) => {
   const k = kolom.find((item) => item.input === event.target);
   if (!k) return;
@@ -241,7 +231,7 @@ formUlasan.addEventListener("input", (event) => {
 });
 
 formUlasan.addEventListener("submit", (event) => {
-  event.preventDefault(); // baris pertama: jangan muat ulang halaman
+  event.preventDefault();
   sudahMencoba = true;
 
   const bermasalah = kolom.filter((k) => !periksaKolom(k));
@@ -268,8 +258,6 @@ formUlasan.addEventListener("submit", (event) => {
   sudahMencoba = false;
   tombolKirim.disabled = false;
 });
-
-/* ---------- Gambar pertama kali ---------- */
 
 render(daftarFilm);
 renderTabel(daftarFilm);
