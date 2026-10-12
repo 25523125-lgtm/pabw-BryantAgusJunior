@@ -7,6 +7,7 @@ body {
 header {
   padding-block: var(--space-4);
   border-bottom: 1px solid var(--color-border);
+  animation: profil-turun 0.65s both;
 }
 
 .header-baris,
@@ -65,6 +66,7 @@ nav a:hover {
   align-self: start;
   position: sticky;
   top: var(--space-4);
+  animation: profil-dari-kiri 0.65s 0.12s both;
 }
 
 .sisi h3 {
@@ -131,6 +133,7 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   gap: var(--section-gap);
+  animation: profil-naik 0.7s 0.18s both;
 }
 
 .bawah {
@@ -160,4 +163,41 @@ footer {
   border-top: 1px solid var(--color-border);
   color: var(--color-fg);
   font-size: var(--text-sm);
+  animation: profil-naik 0.65s 0.24s both;
+}
+
+@keyframes profil-turun {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes profil-dari-kiri {
+  from {
+    opacity: 0;
+    transform: translateX(-14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes profil-naik {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
