@@ -1,4 +1,3 @@
-// js/app.js: perakit. Hanya mengimpor modul lain dan menjalankan aplikasi.
 import { ambilProyek } from "./api.js";
 import { profil, buatPerkenalan, formatKeahlian } from "./data.js";
 import {
@@ -24,14 +23,14 @@ async function mulai() {
     genre: formatKeahlian(profil.keahlian),
   });
 
-  pulihkan(muat()); // pilihan terakhir, atau nilai bawaan
+  pulihkan(muat());
   muatUlasan();
-  tandaiTombolAktif(state.kategoriAktif); // tombol sudah benar sebelum data tiba
+  tandaiTombolAktif(state.kategoriAktif);
   pasangPendengar();
 
   aturMemuat(true);
   try {
-    isiProyek(await ambilProyek()); // isiProyek memanggil render(state)
+    isiProyek(await ambilProyek());
   } catch (galat) {
     tampilkanGalat(
       "Data gagal dimuat. Periksa koneksi, lalu muat ulang halaman.",

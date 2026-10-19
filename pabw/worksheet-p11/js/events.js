@@ -1,4 +1,3 @@
-// js/events.js: seluruh addEventListener. Pendengar hanya memanggil fungsi pengubah di state.js.
 import {
   state,
   pilihKategori,
@@ -26,7 +25,8 @@ function periksaKolom(indeks) {
   return pesan === "";
 }
 
-const formSah = () => aturanKolom.every((aturan, i) => aturan(bacaKolom(i)) === "");
+const formSah = () =>
+  aturanKolom.every((aturan, i) => aturan(bacaKolom(i)) === "");
 
 export function pasangPendengar() {
   // filter kategori
@@ -36,7 +36,6 @@ export function pasangPendengar() {
     pilihKategori(tombol.dataset.kategori);
   });
 
-  // favorit dan detail kartu: satu pendengar di wadah daftar
   elemen.daftar.addEventListener("click", (event) => {
     const favorit = event.target.closest(".favorit");
     if (favorit) {
@@ -50,12 +49,10 @@ export function pasangPendengar() {
     if (detail) ubahDetail(Number(detail.dataset.id));
   });
 
-  // tombol atur ulang
   elemen.aturUlang.addEventListener("click", () => {
     aturUlang();
   });
 
-  // formulir ulasan
   elemen.form.addEventListener("input", (event) => {
     const indeks = indeksKolom(event.target);
     if (indeks === -1) return;

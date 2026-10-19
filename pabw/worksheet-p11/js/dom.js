@@ -1,5 +1,3 @@
-// js/dom.js: seluruh sentuhan ke halaman: pemilih, render, dan perubahan kelas.
-// Tidak ada pendengar peristiwa di sini (ada di events.js) dan tidak ada keadaan yang dibaca dari DOM.
 import { saring, hitungRataRata } from "./data.js";
 
 function ambil(pemilih) {
@@ -25,22 +23,18 @@ const pesanUlasan = ambil("#pesan-ulasan");
 const tombolKirim = ambil("#form-ulasan button[type='submit']");
 const tombolAturUlang = ambil("#atur-ulang");
 
-// Kolom formulir, urutannya sama dengan aturanKolom di data.js.
 const kolom = [
   { input: ambil("#nama"), galat: ambil("#galat-nama") },
   { input: ambil("#rating"), galat: ambil("#galat-rating") },
   { input: ambil("#komentar"), galat: ambil("#galat-komentar") },
 ];
 
-// Elemen yang dipasangi pendengar oleh events.js.
 export const elemen = {
   daftar: wadah,
   filter: barisFilter,
   form: formUlasan,
   aturUlang: tombolAturUlang,
 };
-
-// ---------- profil, memuat, galat ----------
 
 export function tampilkanProfil({ nama, deskripsi, genre }) {
   document.title = `${nama} - Profil & Daftar Film`;
@@ -66,8 +60,6 @@ export function tampilkanGalat(pesan) {
   kosong.setAttribute("role", "alert");
   kosong.hidden = false;
 }
-
-// ---------- kartu dan tabel ----------
 
 export function buatKartu(film, indeks, favorit, terbuka) {
   const kartu = document.createElement("article");
@@ -198,9 +190,6 @@ function renderTabel(daftar, rataRata) {
   kakiTabel.append(ringkasan);
 }
 
-// ---------- tombol filter ----------
-
-// Syaratnya dari state: tombol.dataset.kategori === kategoriAktif.
 export function tandaiTombolAktif(kategoriAktif) {
   barisFilter.querySelectorAll("button").forEach((tombol) => {
     const aktif = tombol.dataset.kategori === kategoriAktif;
@@ -209,33 +198,27 @@ export function tandaiTombolAktif(kategoriAktif) {
   });
 }
 
-// ---------- render(state) ----------
-
-// Hanya diingat untuk menentukan animasi masuk; bukan keadaan aplikasi.
 let kategoriTergambar = null;
 
 export function render(state) {
   tandaiTombolAktif(state.kategoriAktif);
   pesanUlasan.textContent = state.pesanUlasan;
 
-  if (state.gagal) return; // pesan galat dari tampilkanGalat() tetap tampil
+  if (state.gagal) return;
 
-  // Animasi masuk hanya saat kategori berganti, bukan tiap favorit/detail diklik.
   wadah.classList.toggle("tenang", kategoriTergambar === state.kategoriAktif);
   kategoriTergambar = state.kategoriAktif;
 
-  // Pertahankan fokus papan ketik pada tombol kartu yang sama setelah digambar ulang.
   const fokus = document.activeElement;
   const pulihFokus =
     fokus && wadah.contains(fokus) && fokus.dataset.id
       ? { kelas: fokus.classList[0], id: fokus.dataset.id }
       : null;
 
-  wadah.textContent = ""; // 1. kosongkan
-  const tampil = saring(state.daftarProyek, state.kategoriAktif); // dari data.js
+  wadah.textContent = "";
+  const tampil = saring(state.daftarProyek, state.kategoriAktif);
 
   if (tampil.length === 0) {
-    // 2. keadaan kosong
     kosong.textContent =
       "Belum ada film yang cocok. Coba pilih genre lain, atau periksa isi data.";
     delete kosong.dataset.jenis;
@@ -243,7 +226,7 @@ export function render(state) {
     kosong.hidden = false;
   } else {
     kosong.hidden = true;
-    const fragmen = document.createDocumentFragment(); // 3. isi ulang
+    const fragmen = document.createDocumentFragment();
     tampil.forEach((film, indeks) =>
       fragmen.append(buatKartu(film, indeks, state.favorit, state.terbuka)),
     );
@@ -259,8 +242,6 @@ export function render(state) {
       ?.focus();
   }
 }
-
-// ---------- formulir ulasan ----------
 
 export const bacaKolom = (indeks) => kolom[indeks].input.value;
 

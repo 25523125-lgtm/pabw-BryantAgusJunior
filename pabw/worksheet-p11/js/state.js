@@ -1,5 +1,3 @@
-// js/state.js: satu objek state, fungsi pengubahnya, dan penyimpanan ke localStorage.
-// Setiap perubahan keadaan lewat fungsi bernama di sini, lalu memanggil render(state).
 import { render } from "./dom.js";
 import { daftarKategori, hitungRataRata } from "./data.js";
 import { bacaUlasan, simpanUlasan } from "./api.js";
@@ -8,17 +6,15 @@ const KUNCI = "pabw-p11";
 const VERSI = 2;
 
 export const state = {
-  daftarProyek: [], // dari server, tidak disimpan
-  kategoriAktif: "semua", // disimpan
-  favorit: [], // disimpan: larik id proyek
-  terbuka: [], // id kartu yang sinopsisnya dibuka (tidak disimpan)
-  ulasan: [], // disimpan oleh api.js (kunci "ulasan-film")
-  pesanUlasan: "", // pesan sesudah ulasan terkirim (tidak disimpan)
-  sudahMencoba: false, // formulir pernah dicoba kirim (tidak disimpan)
-  gagal: false, // data gagal dimuat dari server (tidak disimpan)
+  daftarProyek: [],
+  kategoriAktif: "semua",
+  favorit: [],
+  terbuka: [],
+  ulasan: [],
+  pesanUlasan: "",
+  sudahMencoba: false,
+  gagal: false,
 };
-
-// ---------- penyimpanan ----------
 
 export function simpan(state) {
   const isi = {
@@ -29,7 +25,6 @@ export function simpan(state) {
   try {
     localStorage.setItem(KUNCI, JSON.stringify(isi));
   } catch (galat) {
-    // penyimpanan penuh atau diblokir: halaman tetap jalan, hanya tidak diingat
     console.error("pilihan tidak tersimpan", galat.message);
   }
 }
@@ -38,19 +33,18 @@ export function muat() {
   try {
     const isi = JSON.parse(localStorage.getItem(KUNCI));
     if (isi?.versi !== VERSI) {
-      localStorage.removeItem(KUNCI); // bentuk lama atau kosong: buang
+      localStorage.removeItem(KUNCI);
       return null;
     }
     return isi;
   } catch {
-    localStorage.removeItem(KUNCI); // isi rusak: buang
+    localStorage.removeItem(KUNCI);
     return null;
   }
 }
 
 export function pulihkan(isi) {
-  if (!isi) return; // kunjungan pertama: nilai bawaan tetap
-  // versi cocok, tetapi isinya tetap diperiksa sebelum dipercaya
+  if (!isi) return;
   state.kategoriAktif = daftarKategori.includes(isi.kategoriAktif)
     ? isi.kategoriAktif
     : "semua";
@@ -71,8 +65,6 @@ export function aturUlang() {
   render(state);
 }
 
-// ---------- fungsi pengubah ----------
-
 export function isiProyek(daftar) {
   state.daftarProyek = daftar;
   state.gagal = false;
@@ -92,7 +84,7 @@ export function pilihKategori(nilai) {
 
 export function tambahFavorit(id) {
   if (state.favorit.includes(id)) return;
-  state.favorit = [...state.favorit, id]; // salinan baru, bukan push
+  state.favorit = [...state.favorit, id];
   simpan(state);
   render(state);
 }
