@@ -1,6 +1,12 @@
 import { render } from "./dom.js";
 import { daftarKategori, hitungRataRata } from "./data.js";
-import { bacaUlasan, simpanUlasan } from "./api.js";
+import {
+  bacaFilmTambahan,
+  bacaUlasan,
+  hapusFilmTersimpan,
+  simpanFilmTambahan,
+  simpanUlasan,
+} from "./api.js";
 
 const KUNCI = "pabw-p11";
 const VERSI = 2;
@@ -12,6 +18,7 @@ export const state = {
   terbuka: [],
   ulasan: [],
   pesanUlasan: "",
+  pesanTambahFilm: "",
   sudahMencoba: false,
   gagal: false,
 };
@@ -65,9 +72,46 @@ export function aturUlang() {
   render(state);
 }
 
-export function isiProyek(daftar) {
-  state.daftarProyek = daftar;
+export async function isiProyek(daftar) {
+  const tersimpan = await bacaFilmTambahan();
+  const dihapus = new Set(tersimpan.idsTerhapus);
+  state.daftarProyek = [
+    ...daftar.filter((film) => !dihapus.has(film.id)),
+    ...tersimpan.film,
+  ];
   state.gagal = false;
+  render(state);
+}
+
+export async function tambahFilm(film) {
+  const idBerikutnya =
+    Math.max(Date.now(), ...state.daftarProyek.map((item) => item.id + 1));
+  const filmBaru = {
+    ...film,
+    id: idBerikutnya,
+    tambahan: true,
+    gambar: film.gambar,
+    alt: film.alt || `Foto film ${film.judul}`,
+    keterangan: film.gambar ? `Poster film ${film.judul}.` : "",
+  };
+  const daftarBaru = [...state.daftarProyek.filter((item) => item.tambahan), filmBaru];
+  await simpanFilmTambahan(daftarBaru);
+  state.daftarProyek = [...state.daftarProyek, filmBaru];
+  state.kategoriAktif = "semua";
+  state.pesanTambahFilm = `Film "${filmBaru.judul}" berhasil ditambahkan.`;
+  render(state);
+}
+
+export async function hapusFilm(id) {
+  const film = state.daftarProyek.find((item) => item.id === id);
+  if (!film) return;
+
+  await hapusFilmTersimpan(id, Boolean(film.tambahan));
+  state.daftarProyek = state.daftarProyek.filter((item) => item.id !== id);
+  state.favorit = state.favorit.filter((item) => item !== id);
+  state.terbuka = state.terbuka.filter((item) => item !== id);
+  simpan(state);
+  state.pesanTambahFilm = `Film "${film.judul}" berhasil dihapus.`;
   render(state);
 }
 

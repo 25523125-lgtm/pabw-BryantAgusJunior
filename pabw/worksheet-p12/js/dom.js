@@ -22,6 +22,10 @@ const formUlasan = ambil("#form-ulasan");
 const pesanUlasan = ambil("#pesan-ulasan");
 const tombolKirim = ambil("#form-ulasan button[type='submit']");
 const tombolAturUlang = ambil("#atur-ulang");
+const formTambahFilm = ambil("#form-tambah-film");
+const tombolTambahFilm = ambil("#tombol-tambah-film");
+const tombolBatalTambahFilm = ambil("#batal-tambah-film");
+const pesanTambahFilm = ambil("#pesan-tambah-film");
 
 const kolom = [
   { input: ambil("#nama"), galat: ambil("#galat-nama") },
@@ -34,6 +38,9 @@ export const elemen = {
   filter: barisFilter,
   form: formUlasan,
   aturUlang: tombolAturUlang,
+  formTambahFilm,
+  tombolTambahFilm,
+  tombolBatalTambahFilm,
 };
 
 export function tampilkanProfil({ nama, deskripsi, genre }) {
@@ -132,6 +139,13 @@ export function buatKartu(film, indeks, favorit, terbuka) {
   detail.setAttribute("aria-expanded", String(dibuka));
 
   aksi.append(tombolFavorit, detail);
+  const tombolHapus = document.createElement("button");
+  tombolHapus.type = "button";
+  tombolHapus.className = "hapus-film";
+  tombolHapus.dataset.id = film.id;
+  tombolHapus.textContent = "Hapus";
+  tombolHapus.setAttribute("aria-label", `Hapus film ${film.judul}`);
+  aksi.append(tombolHapus);
   kaki.append(rating, aksi);
   kartu.append(isi, kaki);
   return kartu;
@@ -203,6 +217,7 @@ let kategoriTergambar = null;
 export function render(state) {
   tandaiTombolAktif(state.kategoriAktif);
   pesanUlasan.textContent = state.pesanUlasan;
+  pesanTambahFilm.textContent = state.pesanTambahFilm || "";
 
   if (state.gagal) return;
 
@@ -265,4 +280,19 @@ export const aturTombolKirim = (nonaktif) => {
 export function kosongkanForm() {
   formUlasan.reset();
   kolom.forEach((_, i) => tampilkanGalatKolom(i, ""));
+}
+
+export function aturFormTambahFilm(terbuka) {
+  formTambahFilm.hidden = !terbuka;
+  tombolTambahFilm.setAttribute("aria-expanded", String(terbuka));
+  if (terbuka) ambil("#film-judul").focus();
+  else tombolTambahFilm.focus();
+}
+
+export function kosongkanFormTambahFilm() {
+  formTambahFilm.reset();
+}
+
+export function tampilkanPesanTambahFilm(pesan) {
+  pesanTambahFilm.textContent = pesan;
 }

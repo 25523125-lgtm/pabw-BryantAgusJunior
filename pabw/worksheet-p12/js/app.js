@@ -30,13 +30,13 @@ async function mulai() {
 
   aturMemuat(true);
   try {
-    isiProyek(await ambilProyek());
+    await isiProyek(await ambilProyek());
   } catch (galat) {
     tampilkanGalat(
-      "Data gagal dimuat. Periksa koneksi, lalu muat ulang halaman.",
+      "Daftar film gagal dimuat. Periksa koneksi dan izin penyimpanan browser, lalu muat ulang halaman.",
     );
     tandaiGagal();
-    console.error(galat.message);
+    console.error(galat);
   } finally {
     aturMemuat(false);
   }

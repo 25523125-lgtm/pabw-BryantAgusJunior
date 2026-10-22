@@ -97,6 +97,33 @@
   margin-top: var(--space-4);
 }
 
+.form-ulasan[hidden] {
+  display: none;
+}
+
+.bagian-tambah-film {
+  margin-top: var(--space-6);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.bagian-tambah-film h3 {
+  margin-top: 0;
+}
+
+.aksi-form-film {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+#pesan-tambah-film {
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
 .form-kolom {
   display: flex;
   flex-direction: column;
@@ -405,6 +432,10 @@ tbody tr:hover {
 
 .favorit[aria-pressed="true"] {
   border-color: var(--color-primary);
+}
+
+.hapus-film {
+  background: var(--color-danger);
 }
 
 .atur-ulang {
