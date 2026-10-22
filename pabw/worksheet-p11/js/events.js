@@ -29,7 +29,6 @@ const formSah = () =>
   aturanKolom.every((aturan, i) => aturan(bacaKolom(i)) === "");
 
 export function pasangPendengar() {
-  // filter kategori
   elemen.filter.addEventListener("click", (event) => {
     const tombol = event.target.closest("button");
     if (!tombol) return;

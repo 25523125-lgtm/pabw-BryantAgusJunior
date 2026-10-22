@@ -1,6 +1,3 @@
-// js/data.js: data profil dan fungsi murni (tidak menyentuh halaman, state, atau jaringan).
-// Daftar proyek TIDAK di sini: ia ada di data/proyek.json sejak P10.
-
 export const profil = {
   nama: "Universal Pictures",
   peran:
@@ -19,17 +16,14 @@ export const hitungRataRata = (daftar) =>
     ? 0
     : daftar.reduce((jumlah, nilai) => jumlah + nilai, 0) / daftar.length;
 
-// Kategori yang sah untuk filter: "semua" ditambah setiap genre di profil.
 export const daftarKategori = ["semua", ...profil.keahlian];
 
-// Menerima daftar dan kategori, mengembalikan daftar yang lolos filter.
 export function saring(daftar, kategori) {
   return daftar.filter(
     (film) => kategori === "semua" || film.genre.includes(kategori),
   );
 }
 
-// Aturan validasi formulir ulasan: menerima teks, mengembalikan pesan galat ("" bila sah).
 export function periksaNama(teks) {
   const nilai = teks.trim();
   if (nilai === "")
@@ -59,5 +53,4 @@ export function periksaKomentar(teks) {
   return "";
 }
 
-// Urutan sama dengan urutan kolom formulir di profil.html: nama, rating, komentar.
 export const aturanKolom = [periksaNama, periksaRating, periksaKomentar];
