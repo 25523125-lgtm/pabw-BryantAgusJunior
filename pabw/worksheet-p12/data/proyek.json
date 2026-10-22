@@ -1,0 +1,145 @@
+[
+  {
+    "id": 1,
+    "judul": "Despicable Me",
+    "tahun": 2010,
+    "genre": [
+      "Animasi",
+      "Komedi",
+      "Keluarga"
+    ],
+    "rating": 8,
+    "sinopsis": "Gru, seorang penjahat super ambisius yang berencana mencuri Bulan, namun hidupnya berubah drastis setelah mengadopsi tiga anak yatim piatu.",
+    "unggulan": true,
+    "gambar": "Photo/Despicable_Me.jpg",
+    "alt": "Poster film Despicable Me: Gru berdiri di atas menara dengan tiga anak angkatnya, dikelilingi para Minion.",
+    "keterangan": "Gru bersama tiga anak angkatnya dan para Minion."
+  },
+  {
+    "id": 2,
+    "judul": "Despicable Me 2",
+    "tahun": 2013,
+    "genre": [
+      "Animasi",
+      "Komedi",
+      "Petualangan"
+    ],
+    "rating": 8,
+    "sinopsis": "Gru yang direkrut oleh Liga Anti-Penjahat (AVL) untuk melacak penjahat super baru setelah ia pensiun dari dunia kejahatan dan fokus merawat ketiga putri angkatnya.",
+    "unggulan": false,
+    "gambar": "Photo/Despicable Me 2.jpg",
+    "alt": "Poster film Despicable Me 2.",
+    "keterangan": "Poster film Despicable Me 2."
+  },
+  {
+    "id": 3,
+    "judul": "Despicable Me 3",
+    "tahun": 2017,
+    "genre": [
+      "Animasi",
+      "Komedi",
+      "Keluarga"
+    ],
+    "rating": 7,
+    "sinopsis": "Gru bertemu Dru, saudara kembarnya yang selama ini tidak ia ketahui, sementara mantan bintang cilik Balthazar Bratt merencanakan pembalasan dendam terhadap dunia.",
+    "unggulan": false,
+    "gambar": "Photo/Despicable_Me_3.jpg",
+    "alt": "Poster film Despicable Me 3: Gru di kiri dan saudara kembarnya, Dru, di kanan saling berhadapan dengan wajah berdekatan di latar putih, dengan tulisan \"Oh brother.\"",
+    "keterangan": "Gru dan Dru, saudara kembarnya, saling berhadapan."
+  },
+  {
+    "id": 4,
+    "judul": "Kung Fu Panda",
+    "tahun": 2008,
+    "genre": [
+      "Animasi",
+      "Aksi",
+      "Komedi"
+    ],
+    "rating": 9,
+    "sinopsis": "Perjalanan Po Ping, seekor panda gemuk dan kikuk yang bekerja di kedai mie ayahnya, namun bermimpi besar menjadi seorang ahli kung fu.",
+    "unggulan": true,
+    "gambar": "Photo/Kungfu_Panda.jpeg",
+    "alt": "Poster film Kung Fu Panda: Po sang panda dalam pose kung fu.",
+    "keterangan": "Po, sang Pendekar Naga, dalam pose kung fu."
+  },
+  {
+    "id": 5,
+    "judul": "Kung Fu Panda 2",
+    "tahun": 2011,
+    "genre": [
+      "Animasi",
+      "Aksi",
+      "Komedi"
+    ],
+    "rating": 8,
+    "sinopsis": "Po dan Furious Five harus menghentikan Lord Shen, merak jahat yang memiliki senjata baru untuk menaklukkan Tiongkok, sambil Po menelusuri asal-usul dirinya.",
+    "unggulan": false,
+    "gambar": "Photo/Kungfu_Panda_2.jpg",
+    "alt": "Poster film Kung Fu Panda 2: Po berdiri dengan satu kaki dalam pose kung fu di latar kuning keemasan, dengan angka 2 merah besar di bawahnya.",
+    "keterangan": "Po berpose kung fu dengan latar kuning keemasan."
+  },
+  {
+    "id": 6,
+    "judul": "Kung Fu Panda 3",
+    "tahun": 2016,
+    "genre": [
+      "Animasi",
+      "Aksi",
+      "Petualangan"
+    ],
+    "rating": 8,
+    "sinopsis": "Po bertemu ayah kandungnya dan pergi ke desa rahasia para panda, sementara Kai, makhluk spiritual yang mencuri chi para master, mengancam dunia.",
+    "unggulan": false,
+    "gambar": "Photo/Kungfu_Panda_3.jpg",
+    "alt": "Poster film Kung Fu Panda 3: Po menggendong banyak panda kecil dan dikelilingi kerumunan panda di desa pegunungan, dengan tulisan \"Grab destiny by the dumplings\".",
+    "keterangan": "Po dan kerumunan panda di desa rahasia para panda."
+  },
+  {
+    "id": 7,
+    "judul": "Kung Fu Panda 4",
+    "tahun": 2024,
+    "genre": [
+      "Animasi",
+      "Aksi",
+      "Petualangan"
+    ],
+    "rating": 7,
+    "sinopsis": "Po yang harus pensiun sebagai Pendekar Naga (Dragon Warrior) dan bersiap menjadi pemimpin spiritual (Spiritual Leader) di Lembah Perdamaian.",
+    "unggulan": false,
+    "gambar": "Photo/Kungfu Panda 4.jpg",
+    "alt": "Poster film Kung Fu Panda 4.",
+    "keterangan": "Poster film Kung Fu Panda 4."
+  },
+  {
+    "id": 8,
+    "judul": "The Odyssey",
+    "tahun": 2026,
+    "genre": [
+      "Aksi",
+      "Petualangan"
+    ],
+    "rating": 9,
+    "sinopsis": "Setelah Perang Troya, Odiseus, raja Ithaka, menempuh pelayaran berbahaya pulang ke rumah dan menghadapi Cyclops, Siren, serta Circe demi kembali kepada istrinya, Penelope.",
+    "unggulan": false,
+    "gambar": "Photo/The Odyssey.jpg",
+    "alt": "Poster film The Odyssey: sosok dari belakang memakai helm prajurit berjambul yang menyerupai tulang belakang, dengan latar biru gelap dan tanggal rilis 17 Juli 2026.",
+    "keterangan": "Prajurit berhelm jambul dari belakang, karya Christopher Nolan."
+  },
+  {
+    "id": 9,
+    "judul": "Minions & Monsters",
+    "tahun": 2026,
+    "genre": [
+      "Animasi",
+      "Komedi",
+      "Keluarga"
+    ],
+    "rating": 7,
+    "sinopsis": "Dipecat dari studio Hollywood tahun 1920-an saat film bersuara datang, para Minion membuat film monster sendiri, tetapi rencana mereka kacau ketika monster Goomi memakai produksi itu untuk melepas makhluk perusak.",
+    "unggulan": false,
+    "gambar": "Photo/Minions_and_Monsters.jpg",
+    "alt": "Poster film Minions & Monsters: seorang Minion bermata satu berdiri di tengah lendir merah yang dipenuhi bola mata raksasa.",
+    "keterangan": "Seorang Minion bermata satu di tengah lendir merah penuh bola mata."
+  }
+]
