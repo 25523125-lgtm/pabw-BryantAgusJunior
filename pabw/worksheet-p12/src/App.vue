@@ -7,7 +7,6 @@ import KepalaProfil from "./components/KepalaProfil.vue";
 import TombolFilter from "./components/TombolFilter.vue";
 import DaftarProyek from "./components/DaftarProyek.vue";
 import FormKontak from "./components/FormKontak.vue";
-import FormTambahFilm from "./components/FormTambahFilm.vue";
 
 onMounted(async () => {
   pulihkan(muat()); // pilihan terakhir dari localStorage
@@ -49,7 +48,6 @@ watch(state, (nilai) => simpan(nilai), { deep: true });
         <p>Film favorit saya yang pernah saya tonton, dari animasi sampai aksi dan petualangan. Pilih genre untuk menyaring daftarnya.</p>
 
         <TombolFilter />
-        <FormTambahFilm />
         <DaftarProyek />
       </section>
 
